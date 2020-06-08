@@ -36,9 +36,9 @@ type
     Panel4: TPanel;
     Panel5: TPanel;
     sHorAlignmentAction1: TsHorAlignmentAction;
-    sWorkbookSource1: TsWorkbookSource;
+    swsSource: TsWorkbookSource;
     swtcWBTab: TsWorkbookTabControl;
-    sWorksheetGrid1: TsWorksheetGrid;
+    swgSheet: TsWorksheetGrid;
     sceEdit: TsCellEdit;
     sciCell: TsCellIndicator;
     FontBold: TsFontStyleAction;
@@ -91,19 +91,23 @@ uses
 //------------------------------------------------------------------------------
 procedure TForm1.FileOpenAccept(Sender: TObject);
 begin
-  sWorkbookSource1.AutodetectFormat := false;
+
+  swsSource.AutodetectFormat := false;
+
   case FileOpen.Dialog.FilterIndex of
-    1: sWorkbookSource1.AutoDetectFormat := true;         // All spreadsheet files
-    2: sWorkbookSource1.AutoDetectFormat := true;         // All Excel files
-    3: sWorkbookSource1.FileFormat := sfOOXML;            // Excel 2007+
-    4: sWorkbookSource1.FileFormat := sfExcel8;           // Excel 97-2003
-    5: sWorkbookSource1.FileFormat := sfExcel5;           // Excel 5.0
-    6: sWorkbookSource1.FileFormat := sfExcel2;           // Excel 2.1
-    7: sWorkbookSource1.FileFormat := sfOpenDocument;     // Open/LibreOffice
-    8: sWorkbookSource1.FileFormat := sfCSV;              // Text files
-    9: sWorkBookSource1.FileFormat := sfHTML;             // HTML files
+    1: swsSource.AutoDetectFormat := true;         // All spreadsheet files
+    2: swsSource.AutoDetectFormat := true;         // All Excel files
+    3: swsSource.FileFormat := sfOOXML;            // Excel 2007+
+    4: swsSource.FileFormat := sfExcel8;           // Excel 97-2003
+    5: swsSource.FileFormat := sfExcel5;           // Excel 5.0
+    6: swsSource.FileFormat := sfExcel2;           // Excel 2.1
+    7: swsSource.FileFormat := sfOpenDocument;     // Open/LibreOffice
+    8: swsSource.FileFormat := sfCSV;              // Text files
+    9: swsSource.FileFormat := sfHTML;             // HTML files
   end;
-  sWorkbookSource1.FileName := FileOpen.Dialog.FileName;  // This loads the file
+
+  swsSource.FileName := FileOpen.Dialog.FileName;  // This loads the file
+
 end;
 
 //------------------------------------------------------------------------------
@@ -113,9 +117,13 @@ end;
 procedure TForm1.FileSaveAsAccept(Sender: TObject);
 var
   fmt: TsSpreadsheetFormat;
+
 begin
+
   Screen.Cursor := crHourglass;
+
   try
+
     case FileSaveAs.Dialog.FilterIndex of
       1: fmt := sfOOXML;                // Note: Indexes are 1-based here!
       2: fmt := sfExcel8;
@@ -125,10 +133,13 @@ begin
       6: fmt := sfCSV;
       7: fmt := sfHTML;
     end;
-    sWorkbookSource1.SaveToSpreadsheetFile(FileSaveAs.Dialog.FileName, fmt);
+
+    swsSource.SaveToSpreadsheetFile(FileSaveAs.Dialog.FileName, fmt);
+
   finally
     Screen.Cursor := crDefault;
   end;
+
 end;
 
 //------------------------------------------------------------------------------

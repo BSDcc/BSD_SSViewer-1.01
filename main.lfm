@@ -8,7 +8,7 @@ object Form1: TForm1
   ClientWidth = 997
   Menu = MainMenu1
   ShowHint = True
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.0.6.0'
   object Splitter3: TSplitter
     Cursor = crVSplit
     Left = 0
@@ -57,22 +57,22 @@ object Form1: TForm1
       end
       object cbxFont: TsCellCombobox
         Left = 54
-        Height = 27
+        Height = 26
         Hint = 'Cell font name'
         Top = 0
         Width = 200
-        WorkbookSource = sWorkbookSource1
+        WorkbookSource = swsSource
         DropDownCount = 24
         TabOrder = 0
       end
       object cbxSize: TsCellCombobox
         Left = 262
-        Height = 27
+        Height = 26
         Hint = 'Cell font size'
         Top = 0
         Width = 80
         CellFormatItem = cfiFontSize
-        WorkbookSource = sWorkbookSource1
+        WorkbookSource = swsSource
         DropDownCount = 24
         ItemIndex = 2
         TabOrder = 1
@@ -87,7 +87,7 @@ object Form1: TForm1
         CellFormatItem = cfiFontColor
         ColorRectOffset = 3
         ColorRectWidth = 12
-        WorkbookSource = sWorkbookSource1
+        WorkbookSource = swsSource
         DropDownCount = 24
         ItemIndex = 0
         TabOrder = 2
@@ -173,10 +173,10 @@ object Form1: TForm1
       TabOrder = 0
       object sciCell: TsCellIndicator
         Left = 2
-        Height = 27
+        Height = 26
         Top = 2
         Width = 80
-        WorkbookSource = sWorkbookSource1
+        WorkbookSource = swsSource
         TabOrder = 0
         Text = 'A1'
       end
@@ -200,7 +200,7 @@ object Form1: TForm1
         BorderSpacing.Right = 2
         BorderSpacing.Bottom = 3
         TabOrder = 0
-        WorkbookSource = sWorkbookSource1
+        WorkbookSource = swsSource
       end
     end
   end
@@ -226,8 +226,8 @@ object Form1: TForm1
       )
       Align = alClient
       TabOrder = 0
-      WorkbookSource = sWorkbookSource1
-      object sWorksheetGrid1: TsWorksheetGrid
+      WorkbookSource = swsSource
+      object swgSheet: TsWorksheetGrid
         Left = 2
         Height = 492
         Top = 2
@@ -237,7 +237,7 @@ object Form1: TForm1
         FrozenRows = 0
         ReadFormulas = True
         TextOverflow = True
-        WorkbookSource = sWorkbookSource1
+        WorkbookSource = swsSource
         Align = alClient
         AutoAdvance = aaDown
         DefaultColWidth = 64
@@ -246,13 +246,16 @@ object Form1: TForm1
         Font.Height = -13
         Font.Name = 'Arial'
         MouseWheelOption = mwGrid
-        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSizing, goColSizing, goEditing, goThumbTracking, goDblClickAutoSize, goCellHints]
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSizing, goColSizing, goEditing, goAutoAddRows, goThumbTracking, goColSpanning, goDblClickAutoSize, goCellHints]
         ParentFont = False
         TabOrder = 1
+        TitleFont.Color = clBlack
+        TitleFont.Height = -13
+        TitleFont.Name = 'Arial'
       end
     end
   end
-  object sWorkbookSource1: TsWorkbookSource
+  object swsSource: TsWorkbookSource
     AutoDetectFormat = False
     FileFormat = sfUser
     Options = [boAutoCalc, boCalcBeforeSaving, boReadFormulas]
@@ -291,7 +294,7 @@ object Form1: TForm1
     end
     object FontBold: TsFontStyleAction
       Category = 'Font'
-      WorkbookSource = sWorkbookSource1
+      WorkbookSource = swsSource
       Caption = 'Bold'
       Hint = 'Bold'
       ImageIndex = 3
@@ -299,7 +302,7 @@ object Form1: TForm1
     end
     object FontItalic: TsFontStyleAction
       Category = 'Font'
-      WorkbookSource = sWorkbookSource1
+      WorkbookSource = swsSource
       Caption = 'Italic'
       Hint = 'Italic'
       ImageIndex = 4
@@ -307,7 +310,7 @@ object Form1: TForm1
     end
     object FontUnderLine: TsFontStyleAction
       Category = 'Font'
-      WorkbookSource = sWorkbookSource1
+      WorkbookSource = swsSource
       Caption = 'Underlined'
       Hint = 'Underlined'
       ImageIndex = 5
