@@ -40,14 +40,24 @@
           </Linking>
         </CompilerOptions>
       </Item2>
+      <SharedMatrixOptions Count="1">
+        <Item1 ID="951869227936" Modes="Debug,Release" Type="OutDir" Value="lib/$(TargetCPU)-$(TargetOS)/$(BuildMode)"/>
+      </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
     </PublishOptions>
     <RunParams>
+      <local>
+        <CommandLineParams Value="&quot;C:\Users\francois\Nextcloud\Files\LPMS Templates\Template File Cover Conveyancing (Standard).xlsx&quot;"/>
+      </local>
       <FormatVersion Value="2"/>
       <Modes Count="1">
-        <Mode0 Name="default"/>
+        <Mode0 Name="default">
+          <local>
+            <CommandLineParams Value="&quot;C:\Users\francois\Nextcloud\Files\LPMS Templates\Template File Cover Conveyancing (Standard).xlsx&quot;"/>
+          </local>
+        </Mode0>
       </Modes>
     </RunParams>
     <RequiredPackages Count="2">
@@ -62,6 +72,7 @@
       <Unit0>
         <Filename Value="ssviewer.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="SSViewer"/>
       </Unit0>
       <Unit1>
         <Filename Value="main.pas"/>

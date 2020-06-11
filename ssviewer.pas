@@ -1,4 +1,4 @@
-program ssviewer;
+program SSViewer;
 
 {$mode objfpc}{$H+}
 

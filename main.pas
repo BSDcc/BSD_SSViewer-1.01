@@ -63,6 +63,7 @@ type
     ToolButton7: TToolButton;
     procedure FileOpenAccept(Sender: TObject);
     procedure FileSaveAsAccept(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
 
   protected
@@ -85,6 +86,21 @@ uses
 
 
 { TForm1 }
+
+//------------------------------------------------------------------------------
+// Called when the Form is shown
+//------------------------------------------------------------------------------
+procedure TForm1.FormShow(Sender: TObject);
+begin
+
+   if FileExists(ParamStr(1)) then begin
+
+      swsSource.AutoDetectFormat := true;
+      swsSource.LoadFromSpreadsheetFile(ParamStr(1));
+
+   end;
+
+end;
 
 //------------------------------------------------------------------------------
 // Called when the user clicks on the Open button after selecting a file
